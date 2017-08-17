@@ -1,0 +1,15 @@
+{
+  "name": "predix-volcano",
+  "version": "0.1.0",
+  "description": "Predix Volcano Dashboard",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jayson.DeLancey@ge.com",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  }
+}

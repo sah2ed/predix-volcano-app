@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Predix Digital Volcano</title>
+        <base href="/">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+
+        <!-- No framework necessary, just a few simple jQuery calls pulled from CDN -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+
+        <!-- CSS style and Polymer include statements -->
+        {% include "common/style.html.j2" %}
+        {% include "home/px-includes.html.j2" %}
+
+    </head>
+    <body>
+
+    <!-- Include a fork me on github ribbon in upper right corner -->
+    {% include "home/fork-me-on-github.html.j2" %}
+
+    <!-- Include common header styling for Powered by Predix apps -->
+    {% include "common/header.html.j2" %}
+
+    <!-- Simple welcome message about the application -->
+    <div id="welcome" class="u-desk-m++ u-desk-p u-1/1-palm">
+    <div class="layout layout--middle layout--center u-1/1-palm">
+        <span>
+
+            This demo application lets you select sensors to display from the
+            nodes installed in the Masaya Volcano.  Learn more about the
+            <a href="https://ge.com/digitalvolcano/">Digital Volcano Story</a> 
+            that led to the creation of this app.
+
+        </span>
+    </div>
+    </div>
+
+    <!-- Basic dropdown and refresh buttons for selecting data to display -->
+    <div id="parent" class="u-desk-m++ u-desk-p">
+        <div class="layout layout--middle layout--center">
+            <div class="layout__item u-1/4 u-1/1-palm">
+                {% include "home/node-select.html.j2" %}
+            </div>
+            <div class="layout__item u-1/4 u-1/1-palm">
+                {% include "home/sensor-select.html.j2" %}
+            </div>
+            <div class="layout__item u-1/4 u-1/1-palm">
+                {% include "home/refresh-button.html.j2" %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Display a time series display element for exploring data -->
+    <div id="parent" class="u-desk-m++ u-desk-p">
+        <div class="layout layout--middle layout--center">
+            <px-spinner id='wait-for-it' size="90"></px-spinner>
+        </div>
+        <div id="graph" class="flex flex--row flex--left flex--top">
+            <div class="u-1/1-desk u-1/1-palm">
+                {% include "home/timeseries-graph.html.j2" %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Include common site footer for links to other sections -->
+    {% include "common/footer.html.j2" %}
+
+    <!-- Include interactive behaviors -->
+    {% include "home/script.js" %}
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+predix>=0.0.8
+Flask>=0.12.1
+Flask-Script>=2.0.5
+Flask-Bower>=1.2.1
+Flask-Scss>=0.5
+Flask-Bootstrap>=3.3.7.1
+Jinja2>=2.9.6
+gunicorn>=19.7.1
+psutil>=5.2.2
+python-dateutil>=2.6.0
+PyYAML>=3.12
+sphinx_rtd_theme
+sphinxcontrib-httpdomain

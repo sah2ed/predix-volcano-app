@@ -1,0 +1,8 @@
+"id","type","si_unit","type_id"
+"35dcb3c0-8679-11e6-bda3-ef77801087ee","temperature","celcius","TCA"
+"35dcb3c1-8679-11e6-bda3-ef77801087ee","pressure","pascal","PA"
+"35dcb3c2-8679-11e6-bda3-ef77801087ee","humidity","relative humidity","HUMA"
+"35dcdad0-8679-11e6-bda3-ef77801087ee","carbon dioxide concentration","ppm","GP_CO2"
+"35dcdad1-8679-11e6-bda3-ef77801087ee","hydrogen sulfide concentration","ppm","GP_H2S"
+"35dcdad2-8679-11e6-bda3-ef77801087ee","battery","percentage","BAT"
+"ed5edee0-e701-11e6-83c1-01ce06e6d17f","RSAM","counts","RSAM"
