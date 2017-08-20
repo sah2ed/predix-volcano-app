@@ -21,16 +21,25 @@ RESTful service calls to Predix Micro-Services.
 
 The primary components in the tech stack we'll discuss include:
 
-- polymer
-- bower
-- sass
-- gulp
-- npm
-- jQuery
-- python
-- flask
-- gunicorn
-- jinja
+- `Predix Time Series`_
+- `Predix Asset`_
+- `UAA`_
+- `Predix UI`_
+- `polymer`_
+- `bower`_
+- `sass`_
+- `gulp`_
+- `npm`_
+- `jQuery`_
+- `python`_
+- `flask`_
+- `gunicorn`_
+- `jinja`_
+
+.. _python: http://python.org
+.. _gunicorn: http://gunicorn.org
+.. _UAA: https://www.predix.io/services/service.html?id=1172
+.. _Predix UI: https://predix-ui.com
 
 .. include:: services.rst
 

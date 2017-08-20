@@ -6,6 +6,11 @@ Predix Services are provided through a catalog or marketplace of microservices.
 Each is focused on solving a specific problem well.  In the case of our Volcano
 App, each solves a problem around persistence.
 
+Additionally the Predix Python SDK (PredixPy_) helps work with these services by
+providing client libraries.
+
+.. _PredixPy: https://github.com/PredixDev/predixpy.git
+
 User Account and Authentication (UAA)
 .....................................
 
@@ -21,7 +26,7 @@ The Volcano App needed:
 
 - an admin account for maintaining UAA itself
 - a client account with client_id and secret for our application to use that is
-  granted permission to access **Predix Asset** and **Predix TimeSeries**
+  granted permission to access **Predix Asset** and **Predix Time Series**
 
 .. _`User Account and Authentication Service (UAA)`: https://www.predix.io/services/service.html?id=1172
 
@@ -55,13 +60,13 @@ measures, etc. can be inspected when identifying assets.
 
 The Predix Python SDK provides an ORM like solution of representing Asset
 Collections so that one can create Domain Objects natively in Python and
-persist the data to the Asset Service.
+persist the data to the Predix Asset service.
 
 There are many other features of Predix Asset that were not needed for the
 Volcano App but are common in industrial use cases:
 
 - built-in audit history for device failures
-- connectors with asset and time series
+- connectors with Predix Asset and Predix Time Series
 - scripting engine for domain-specific business logic
 
 View the `Predix Asset Documentation`_ for much more information about these
@@ -69,8 +74,8 @@ other features.
 
 A few implementation notes:
 
-- The *setup/ingest_data.py* script demonstrates populating the Asset Service
-- The asset service lets you determine your own URI scheme to represent assets
+- The *setup/ingest_data.py* script demonstrates populating the Predix Asset service
+- The Predix Asset service lets you determine your own URI scheme to represent assets
   and asset relationships and is a required argument.  There is a max depth to
   these URIs is two levels.  A nested resource relationship is not recommended
   (ie. /volcano/:id/node/:id )
@@ -102,17 +107,17 @@ App but are common in industrial use cases:
 
 - millisecond data point precision common in control systems
 
-View the `Predix Timeseries Documentation`_ for much more information about
+View the `Predix Time Series Documentation`_ for much more information about
 these other features.
 
-.. _`Predix Timeseries Documentation`: https://docs.predix.io/en-US/content/service/data_management/time_series/
+.. _`Predix Time Series Documentation`: https://docs.predix.io/en-US/content/service/data_management/time_series/
 
 A few implementation notes:
 
 - The *setup/ingest_data.py* script demonstrates populating the Time Series
   instance from a CSV file which is provided as an alternative data source
 - The attributes was primarily used to identify the volcano / sensors for quick
-  time series filtering
+  filtering
 - The tags are representative of the type of data being collected -- so
   temperature data shares a common tag TPA and is the basis of doing queries
 - The timestamp will always have millisecond precision in UTC even if rounded

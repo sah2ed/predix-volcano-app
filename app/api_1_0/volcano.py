@@ -56,10 +56,18 @@ def volcanoes():
 @api.route('/volcano/<guid>')
 def volcano(guid):
     """
-    .. http:get:: /api/1.0/volcano/:guid
+    Responds with metadata for a single volcano along with
+    the corresponding sensor network nodes.
 
-    Responds with metadata for a single volcano and its
-    corresponding sensor network nodes.
+    - **uri**: unique guid representing each volcano being tracked.
+    - **name**: the name of a volcano
+    - **description**: longer description describing volcano
+    - **status**: OFFLINE or ONLINE; offline when no connected node is sending
+      sensor data
+    - **location**: GPS longitude and latitude
+    - **nodes**: list of dictionaries with name/uri for more node information
+
+    .. http:get:: /api/1.0/volcano/:guid
 
     **Example request**:
 

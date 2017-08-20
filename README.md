@@ -45,9 +45,9 @@ application.
 [![Analytics](https://ga-beacon.appspot.com/UA-82773213-1/predix-sdks/readme?pixel)](https://github.com/PredixDev)
 
 [story]: https://ge.com/digitalvolcano
-[volcanoapp]: https://predix-volcano.run.aws-usw02-pr.ice.predix.io
-[docs]: https://predix-volcano.run.aws-usw02-pr.ice.predix.io/docs
-[quickstart]: https://predix-volcano.run.aws-usw02-pr.ice.predix.io/docs/html/quickstart/index.html
+[volcanoapp]: https://volcano-app.run.aws-usw02-pr.ice.predix.io
+[docs]: https://volcano-app.run.aws-usw02-pr.ice.predix.io/docs
+[quickstart]: https://volcano-app.run.aws-usw02-pr.ice.predix.io/docs/html/quickstart/index.html
 [signup]: https://www.predix.io/registration/
 [uaa]: https://www.predix.io/services/service.html?id=1172
 [timeseries]: https://www.predix.io/services/service.html?id=1177

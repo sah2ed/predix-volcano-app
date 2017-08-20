@@ -34,7 +34,7 @@ Create a Space
 
 Cloud Foundry is made with enterprises in mind and manages compute and storage
 resources through the concepts of organizations and spaces.  You can create a space
-specifically to work on your volcano project.
+specifically to work on your volcano project in your own default organization.
 
 From a terminal::
 
