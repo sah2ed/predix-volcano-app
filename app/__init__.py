@@ -5,7 +5,7 @@ from flask import Flask
 from flask_bower import Bower
 
 def create_app(config_name):
-    app = Flask(__name__, static_folder='dashboard/static')
+    app = Flask(__name__, static_folder='dashboard/dist')
     if not config_name in config:
         raise ValueError("Invalid FLASK_CONFIG, choose one of %s" %
                 str.join(', ', config.keys()))

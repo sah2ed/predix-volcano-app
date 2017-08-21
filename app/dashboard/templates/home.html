@@ -8,9 +8,8 @@
         <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
 
         <!-- No framework necessary, just a few simple jQuery calls pulled from CDN -->
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-          crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='jquery-3.2.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='webcomponentsjs/webcomponents-lite.min.js') }}"></script>
 
         <!-- CSS style and Polymer include statements -->
         {% include "common/style.html.j2" %}
@@ -32,7 +31,7 @@
 
             This demo application lets you select sensors to display from the
             nodes installed in the Masaya Volcano.  Learn more about the
-            <a href="https://ge.com/digitalvolcano/">Digital Volcano Story</a> 
+            <a href='https://ge.com/digitalvolcano/'>Digital Volcano Story</a> 
             that led to the creation of this app.
 
         </span>
