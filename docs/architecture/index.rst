@@ -24,7 +24,7 @@ The primary components in the tech stack we'll discuss include:
 - `Predix Time Series`_
 - `Predix Asset`_
 - `UAA`_
-- `Predix UI`_
+- `PredixUI`_
 - `polymer`_
 - `bower`_
 - `sass`_
@@ -39,7 +39,7 @@ The primary components in the tech stack we'll discuss include:
 .. _python: http://python.org
 .. _gunicorn: http://gunicorn.org
 .. _UAA: https://www.predix.io/services/service.html?id=1172
-.. _Predix UI: https://predix-ui.com
+.. _PredixUI: https://predix-ui.com
 
 .. include:: services.rst
 

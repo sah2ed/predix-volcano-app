@@ -63,7 +63,7 @@ def datapoints():
     # TODO: better error handling for no node/sensors selected
     node = request.args.get('node')
     sensors = request.args.get('sensor').split(',')
-    logging.debug("Query: %s, %s" % (node, sensors))
+    logging.info("Query: %s, %s" % (node, sensors))
 
     response = timeseries.get_datapoints(sensors, start='5y-ago', limit=10000,
             attributes={'node': node})

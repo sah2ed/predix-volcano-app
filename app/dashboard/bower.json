@@ -20,6 +20,7 @@
     "px-buttons-design": "^1.1.8",
     "px-vis-timeseries": "^1.1.4",
     "px-box-design": "^0.4.4",
-    "px-starter-kit-design": "^0.7.4"
+    "px-starter-kit-design": "^0.7.4",
+    "px-alert-message": "^1.1.0"
   }
 }
