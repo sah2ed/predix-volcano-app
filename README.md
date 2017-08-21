@@ -15,7 +15,7 @@ Nicaragua's capital Managua.
 Learn more about the project by taking the Digital Expedition and view the
 sample app.
 
-- [Digital Expedition Story][story]
+- [Digital Expedition Story][story] (**Start Here**)
 - [Digtal Volcano Demo App][volcanoapp]
 - [Documentation][docs]
 
@@ -29,6 +29,15 @@ To run this application you will need to complete the following steps:
 - [ ] Deploy your app with `cf push`
 
 For more detailed descriptions of these steps view the [Getting Started Guide][quickstart].
+
+# Volcano Data
+
+To access the volcano data you have a few options.
+
+1. Use the [Digital Volcano App][volcanoapp] for simple exploration
+2. Use the [Volcano API][volcanoapi] to make REST calls
+3. Use the CSV files in the **setup/data** directory to import to your
+   preferred data science tools.
 
 # Predix Services Used
 
@@ -53,4 +62,5 @@ application.
 [timeseries]: https://www.predix.io/services/service.html?id=1177
 [asset]: https://www.predix.io/services/service.html?id=1171
 [ui]: https://www.predix-ui.com/#/home/
-[predixpy]:Include://github.com/predixpy/predixpy 
+[predixpy]: https://github.com/PredixDev/predixpy
+[volcanoapi]: https://volcano-app.run.aws-usw02-pr.ice.predix.io/docs/html/api/index.html
