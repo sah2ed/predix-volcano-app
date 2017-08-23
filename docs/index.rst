@@ -14,7 +14,7 @@ If you've already taken the `Digital Expedition`_ to the center of the active
 volcano as part of the story, the documentation here will take you on a
 tour of Predix.  View the `Volcano App`_ live demo.
 
-.. _Digital Expedition: https://ge.com/digitalvolcano
+.. _Digital Expedition: https://www.ge.com/digitalvolcano
 .. _Volcano App: /
 
 .. toctree::
@@ -23,6 +23,7 @@ tour of Predix.  View the `Volcano App`_ live demo.
 
    getting-started/index.rst
    architecture/index.rst
+   devops/index.rst
    api/index.rst
    api/predixpy.rst
 

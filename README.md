@@ -53,7 +53,7 @@ application.
 
 [![Analytics](https://ga-beacon.appspot.com/UA-82773213-1/predix-sdks/readme?pixel)](https://github.com/PredixDev)
 
-[story]: https://ge.com/digitalvolcano
+[story]: https://www.ge.com/digitalvolcano
 [volcanoapp]: https://volcano-app.run.aws-usw02-pr.ice.predix.io
 [docs]: https://volcano-app.run.aws-usw02-pr.ice.predix.io/docs
 [quickstart]: https://volcano-app.run.aws-usw02-pr.ice.predix.io/docs/html/quickstart/index.html
