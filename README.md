@@ -24,8 +24,9 @@ sample app.
 To run this application you will need to complete the following steps:
 
 - [ ] Sign up for a [Free Predix Account][signup] (no credit card required)
-- [ ] Install Python dependencies and libraries in requirements.txt
-- [ ] Run from the setup directory both `create_services.py` and `ingest_data.py`
+- [ ] Clone this repository
+- [ ] Run `pip install predix` (making sure you have python 2.7.10+ and pip 9.0.1+)
+- [ ] Run setup scripts
 - [ ] Deploy your app with `cf push`
 
 For more detailed descriptions of these steps view the [Getting Started Guide][quickstart].
