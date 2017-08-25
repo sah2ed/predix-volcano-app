@@ -52,6 +52,13 @@ application.
 - [Predix UI][ui]
 - [PredixPy][predixpy]
 
+# Getting Help
+
+If something didn't work as expected and you want help:
+
+- Create a [GitHub Issue][github] in this project
+- Ask on the [Predix Developer Forum][forum]
+- Send email to volcano@ge.com and we'll try to respond when we can
 
 [![Analytics](https://ga-beacon.appspot.com/UA-82773213-1/predix-sdks/readme?pixel)](https://github.com/PredixDev)
 
@@ -66,3 +73,5 @@ application.
 [ui]: https://www.predix-ui.com/#/home/
 [predixpy]: https://github.com/PredixDev/predixpy
 [volcanoapi]: https://volcano-app.run.aws-usw02-pr.ice.predix.io/docs/html/api/index.html
+[forum]: https://forum.predix.io/index.html
+[github]: https://github.com/PredixDev/predix-volcano-app/issues
