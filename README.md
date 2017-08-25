@@ -58,7 +58,7 @@ application.
 [story]: https://www.ge.com/digitalvolcano
 [volcanoapp]: https://volcano-app.run.aws-usw02-pr.ice.predix.io
 [docs]: https://volcano-app.run.aws-usw02-pr.ice.predix.io/docs/html/index.html
-[quickstart]: https://volcano-app.run.aws-usw02-pr.ice.predix.io/docs/html/quickstart/index.html
+[quickstart]: https://volcano-app.run.aws-usw02-pr.ice.predix.io/docs/html/getting-started/index.html
 [signup]: https://www.predix.io/registration/
 [uaa]: https://www.predix.io/services/service.html?id=1172
 [timeseries]: https://www.predix.io/services/service.html?id=1177
