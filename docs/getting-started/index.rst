@@ -53,14 +53,13 @@ This reference application makes use of Python.  If you are not a Python
 developer you may not have access to the dependencies but they are beyond the
 scope of this Getting Started guide.
 
-- git
-- python (2.7.x)
-- pip
+- python (2.7.10+)
+- pip (9.0.1+)
 
 .. note::
 
-    If you need help with these, check out the `Python docs`_ or `Hitchiker's Guide to
-    Python`_.
+    If you need help with these, check out the `Hitchiker's Guide to
+    Python`_ or `Python docs`_ for details.
 
 .. _Python docs: https://wiki.python.org/moin/BeginnersGuide
 .. _Hitchiker's Guide to Python: http://docs.python-guide.org/en/latest/starting/installation/
@@ -120,12 +119,26 @@ generated for you in the root of your repository has details about your
 application.  Typically these details should be encrypted to avoid others from
 accessing your services.
 
-From the root of the repository::
+From the root **predix-volcano-app** of the repository you can cf push::
 
-   cf push
+   cd ../../
+   cf push --random-route
 
-For more detailed description see the Cloud Foundry documentation for how to
-`Deploy An App`_.
+After pushing your app, you'll see the URL in the output.  Add `https://` to
+the front of that URL and you can navigate to the app in your web browser.
+
+.. note::
+
+    For more detailed description of cf commands see the Cloud Foundry
+    documentation for how to `Deploy An App`_.
 
 .. _Deploy An App: https://docs.cloudfoundry.org/devguide/deploy-apps/deploy-app.html#push
+
+Next Steps
+----------
+
+This is just the beginning, go learn more about Predix Services by checking out
+the `Predix Guides`_.
+
+.. _Predix Guides: https://www.predix.io/resources/tutorials
 
