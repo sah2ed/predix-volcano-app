@@ -46,11 +46,11 @@ To access the volcano data you have a few options.
 The following services have Free trial plans sufficient to run this
 application.
 
-- [Predix User Account and Authentication][uaa] (UAA)
-- [Predix Time Series][timeseries]
-- [Predix Asset][asset]
+- [PredixPy][predixpy] (Python SDK)
 - [Predix UI][ui]
-- [PredixPy][predixpy]
+- [Predix Asset][asset]
+- [Predix Time Series][timeseries]
+- [User Account and Authentication][uaa] (UAA)
 
 # Getting Help
 
