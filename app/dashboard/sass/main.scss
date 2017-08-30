@@ -27,7 +27,7 @@ $inuit-enable-layout--center : true;
 $inuit-enable-layout--middle : true;
 
 // Trumps
-@import 'px-layout-design/_objects.layout.scss';
+@import "px-layout-design/_objects.layout.scss";
 @import "inuit-clearfix/_trumps.clearfix.scss";
 @import "px-spacing-responsive-design/_trumps.spacing-responsive.scss";
 @import "px-widths-responsive-design/_trumps.widths-responsive.scss";
