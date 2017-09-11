@@ -60,8 +60,6 @@ If something didn't work as expected and you want help:
 - Ask on the [Predix Developer Forum][forum]
 - Send email to volcano@ge.com and we'll try to respond when we can
 
-[![Analytics](https://ga-beacon.appspot.com/UA-82773213-1/predix-volcano-app/readme?pixel)](https://github.com/PredixDev)
-
 [story]: https://www.ge.com/digitalvolcano
 [volcanoapp]: https://volcano-app.run.aws-usw02-pr.ice.predix.io
 [docs]: https://volcano-app.run.aws-usw02-pr.ice.predix.io/docs/html/index.html
