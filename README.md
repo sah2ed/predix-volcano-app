@@ -75,3 +75,6 @@ If something didn't work as expected and you want help:
 [volcanoapi]: https://volcano-app.run.aws-usw02-pr.ice.predix.io/docs/html/api/index.html
 [forum]: https://forum.predix.io/index.html
 [github]: https://github.com/PredixDev/predix-volcano-app/issues
+
+[![Analytics](https://ga-beacon.appspot.com/UA-82773213-1/predix-volcano-app/readme?pixel)](https://github.com/PredixDev)
+
