@@ -1,78 +1,239 @@
+# Digital Volcano Visualization
+## 1.0. Overview
+This submission uses a Jupyter Notebook to explore the data in `csv` files included with the repo.
+All the `csv` files at `setup/data/*.csv` are imported into a notebook named `Visualization` under the `notebooks` folder.
 
-# Introduction
+Due to the large file size of the slug generated for the Jupyter Notebook, deployment to Predix's free plan fails but it works on Heroku.
 
-To test our ability to digitize the natural world and take the first step
-toward creating better predictive systems, GE embarked on an expedition to see
-how industrial big data and predictive analytics can inform communities about
-dangerous volcanic activity.
+This document will describe how to run the Jupyter Notebook locally as well as on Heroku.
 
-This repository is home to the source code, data, and documentation for the
-Digital Volcano.  The App is a simple reference demonstrating the use of Predix
-Services to help you learn how to extend it.  It is based on the data set
-collected from industrial sensors installed in the Masaya Volcano near
-Nicaragua's capital Managua.
 
-Learn more about the project by taking the Digital Expedition and view the
-sample app.
+## 2.0. Visualization
+Exploration of the `csv` data revealed that there are 176,534 datapoints in the timeseries data and only 63,456 datapoints have non-null values but there are only 36,278 unique timestamps. 
 
-- [Digital Volcano Story][story] (**Start Here**)
-- [Digtal Volcano Demo App][volcanoapp]
-- [Documentation][docs]
+To summarize, there are:
 
-# Getting Started
+- 11 unique nodes (nodes 'N1'-'N10' and a 'Real-time Seismic Amplitude Measurement' or 'RSAM' node);
+- 61 unique sensors (each of node 'N1'-'N10' had 6 sensors plus the 'RSAM' node sensor i.e. 6 * 10 + 1)
+- 7 unique data types
 
-See the [Getting Started Guide][quickstart] for details.  You will need to
-complete the following steps:
 
-- [ ] Sign up for a [Free Predix Account][signup] (no credit card required)
-- [ ] Clone this repository
-- [ ] Run `pip install predix` (making sure you have python 2.7.10+ and pip 9.0.1+)
-- [ ] Run setup scripts
-- [ ] Deploy your app with `cf push`
+## 3.0. Local Deployment
+### Prerequisites
+You must clone the [repo](https://github.com/PredixDev/predix-volcano-app) and follow the steps below to be able to successfully run the app under your Predix account.
 
-The specifics on how to complete these steps can be found in the [Getting Started Guide][quickstart].
+This is just an overview of the steps I took on *Windows 8.1* to get the repo working under my Predix account. I had to make a few minor changes to the generated `manifest.yml` file as can be seen in my submission. Those changes were: setting the instances to `2` and explicitly setting the memory to `256MB` for deployment to Predix to succeed i.e:
 
-# Volcano Data
+```
+applications:
+- name: my-predix-app01
+  memory: 256MB
+  instances: 2
+```
 
-To access the volcano data you have a few options.
+### 3.1. Predix Preparation
+- Download the `cf` CLI binary for your platform then login with your Predix credentials.
 
-1. Use the [Digital Volcano App][volcanoapp] for simple exploration.
-2. Use the [Volcano API][volcanoapi] to make REST calls.
-3. Use the CSV files in the **setup/data** directory to import to your
-   preferred data science tools.
+```
+cf login -a https://api.system.aws-usw02-pr.ice.predix.io
+```
 
-# Predix Services Used
+- Next create a space called `volcano` then set it as default.
 
-The following services have Free trial plans sufficient to run this
-application.
+```
+cf create-space volcano
+cf target -s volcano
+```
 
-- [PredixPy][predixpy] (Python SDK)
-- [Predix UI][ui]
-- [Predix Asset][asset]
-- [Predix Time Series][timeseries]
-- [User Account and Authentication][uaa] (UAA)
+- Follow the remaining commands (tested on Python 2.7.11) to deploy the app under your Predix account.
+```
+# Clone and install the repo
+git clone https://github.com/PredixDev/predix-volcano-app
+cd predix-volcano-app/
+pip install -r requirements.txt
 
-# Getting Help
+# Publishes the data to Predix and generates your `manifest.yml`
+cd setup/
+python create_services.py
+python ingest_data.py
 
-If something didn't work as expected and you want help:
+# Generate the HTML assets for the Dashboard
+cd ../app/dashboard
+npm install 
+node .\node_modules\bower\lib\bin\bower.js install # bower install
+node .\node_modules\gulp\bin\gulp.js # gulp
 
-- Create a [GitHub Issue][github] in this project
-- Ask on the [Predix Developer Forum][forum]
-- Send email to volcano@ge.com and we'll try to respond when we can
+# Edit the manifest.yml to set the memory and instance as above.
+vim manifest.yml
 
-[story]: https://www.ge.com/digitalvolcano
-[volcanoapp]: https://volcano-app.run.aws-usw02-pr.ice.predix.io
-[docs]: https://volcano-app.run.aws-usw02-pr.ice.predix.io/docs/html/index.html
-[quickstart]: https://volcano-app.run.aws-usw02-pr.ice.predix.io/docs/html/getting-started/index.html
-[signup]: https://www.predix.io/registration/
-[uaa]: https://www.predix.io/services/service.html?id=1172
-[timeseries]: https://www.predix.io/services/service.html?id=1177
-[asset]: https://www.predix.io/services/service.html?id=1171
-[ui]: https://www.predix-ui.com/#/home/
-[predixpy]: https://github.com/PredixDev/predixpy
-[volcanoapi]: https://volcano-app.run.aws-usw02-pr.ice.predix.io/docs/html/api/index.html
-[forum]: https://forum.predix.io/index.html
-[github]: https://github.com/PredixDev/predix-volcano-app/issues
+# Publish the assets to Predix
+cd ../..
+cf push
+```
 
-[![Analytics](https://ga-beacon.appspot.com/UA-82773213-1/predix-volcano-app/readme?pixel)](https://github.com/PredixDev)
+- Visit the printed URL to view the demo (in my case this was https://my-predix-app01.run.aws-usw02-pr.ice.predix.io/).
 
+
+### 3.2. Environment Preparation
+Before you begin, please overlay all the changes from my submission in your local clone of the repo.
+
+Most of the files listed in the change log are newly added files.
+
+- Change Log:
+  - environment.yml
+  - jupyter-manifest.yml
+  - jupyter-Procfile
+  - Jupyter_README.md
+  - manifest.yml (changes explained above)
+  - notebooks\
+  - start_jupyter
+  - app.json
+  - .jupyter\
+  - .gitignore (existing file)
+
+- Please check out the repo from GitHub https://github.com/PredixDev/predix-volcano-app
+- Next follow the `Predix Preparation` instructions above to generate a valid `manifest.yml` for Predix.
+- Ensure you have modified the `manifest.yml` to fix the memory issue as described above.
+- Next overlay the newly added files and related changes in my submission over your working copy.
+- Next rename `jupyter-Procfile` to `Procfile`.
+
+
+
+### 3.3. Jupyter Installation
+- To deploy the Jupyter Notebook locally, please follow the instructions below.
+
+```
+cd D:\Apps\Python_Environments
+python -m pip install --upgrade pip
+pip install virtualenv
+virtualenv py2env
+.\py2env\Scripts\activate
+
+# Python 3 instead use:
+# python -m venv py2env
+# .\py2env\Scripts\activate
+
+cd predix-volcano-app/
+pip install jupyter pandas matplotlib numpy
+```
+
+### 3.4. Jupyter Interaction
+```
+# Activate the env
+cd D:\Apps\Python_Environments
+.\py2env\Scripts\activate
+
+# Change to the submission folder
+cd predix-volcano-app/
+jupyter notebook
+```
+
+- Next visit the URL in the output to see the Notebook (in my case this was [http://localhost:8888/](http://localhost:8888/?token=1fedda0cb7432cffd6bef0976549ebd59f5e1d025ce5cd99)).
+
+### 3.5. Screen shots
+![.jupyter/01.png](.jupyter/01.png)
+![.jupyter/02.png](.jupyter/02.png)
+![.jupyter/03.png](.jupyter/03.png)
+![.jupyter/04.png](.jupyter/04.png)
+![.jupyter/05.png](.jupyter/05.png)
+![.jupyter/a.png](.jupyter/a.png)
+![.jupyter/b.png](.jupyter/b.png)
+![.jupyter/c.png](.jupyter/c.png)
+![.jupyter/e.png](.jupyter/e.png)
+![.jupyter/f.png](.jupyter/f.png)
+
+
+## 4.0. Cloud Deployment
+### 4.1. Summary
+An outbound connection to GitHub during buildpack compilation times out causing deployment to fail.
+I suspect that the timeout error is due to the strict resource limits imposed by the `free` Predix plan.
+It turns out that Predix does not yet [support Docker](https://forum.predix.io/content/idea/2983/docker-support.html) so pushing a docker image of the Python buildpack / dependencies as a workaround will not work either.
+
+```
+# First attempt using https://github.com/pl31/heroku-buildpack-conda.git
+...
+notebook-4.4.1 100% |###############################| Time: 0:00:00  56.39 MB/s
+Collecting git+git://github.com/ipython-contrib/jupyter_contrib_nbextensions.git
+  Cloning git://github.com/ipython-contrib/jupyter_contrib_nbextensions.git to /tmp/pip-2brus181-build
+fatal: unable to connect to github.com:
+github.com[0: 192.30.255.113]: errno=Connection timed out
+github.com[1: 192.30.255.112]: errno=Connection timed out
+Command "git clone -q git://github.com/ipython-contrib/jupyter_contrib_nbextensions.git /tmp/pip-2brus181-build" failed with error code 128 in None
+
+CondaValueError: pip returned an error.
+widgetsnbexten 100% |###############################| Time: 0:00:00  26.67 MB/s
+ipywidgets-7.0 100% |###############################| Time: 0:00:00  33.09 MB/s
+Staging failed: Buildpack compilation step failed
+
+FAILED
+Error restarting application: BuildpackCompileFailed
+
+
+# Second attempt using python_minconda_buildpack (turns out it is disabled on Predix)
+Starting app jupyter-predix-app01 in org xxxxxxxx@gmail.com / space volcano as xxxxxxxx@gmail.com...
+-----> Downloaded app package (14M)
+
+    Staging failed: Buildpack compilation step failed
+
+FAILED
+Error restarting application: BuildpackCompileFailed
+
+
+# cf buildpacks
+Getting buildpacks...
+
+buildpack                    position   enabled   locked   filename
+custom_node_buildpack        1          true      false
+java_buildpack               2          true      false    java-buildpack-v3.6.zip
+ruby_buildpack               3          true      false    ruby_buildpack-cached-v1.6.34.zip
+nodejs_buildpack             4          true      false    nodejs_buildpack-cached-v1.5.29.zip
+python_buildpack             5          true      false    python_buildpack-cached-v1.5.15.zip
+predix_openresty_buildpack   6          true      false    staticfile_buildpack-cached-v1.2.1.zip
+php_buildpack                7          true      false    php_buildpack-cached-v4.3.27.zip
+staticfile_buildpack         8          true      false    staticfile_buildpack-cached-v1.3.17.zip
+go_buildpack                 9          true      false    go_buildpack-cached-v1.7.18.zip
+java_buildpack_large_heap    10         true      false    java_buildpack_large_heap.zip
+matlab_buildpack_r2011b      11         true      false    matlab-buildpack-r2011b.zip
+matlab_buildpack_r2012a      12         true      false    matlab-buildpack-r2012a.zip
+matlab_buildpack_r2015a      13         true      false    matlab-buildpack-r2015a.zip
+binary_buildpack             14         true      false    binary_buildpack-cached-v1.0.9.zip
+java-buildpack               15         true      false    java-buildpack-v3.13.zip
+java-offline-buildpack       16         true      false    java-buildpack-offline-v3.13.zip
+python_minconda_buildpack    17         false     false    python_minconda_buildpack.zip
+dotnet_core_buildpack        18         true      false    dotnet-core_buildpack-cached-v1.0.11.zip
+```
+
+Fortunately, the Jupyter Notebook deployed successfully on Heroku.
+
+
+
+### 4.2. Predix Cloud
+- If you have access to a paid plan on Predix (i.e. higher than the 512MB limit), these are the commands to deploy the Jupyter Notebook
+
+```
+cd predix-volcano-app/
+chmod +x ./start_jupyter # please do $(dos2unix start_jupyter) if on Windows
+cf login -a https://api.system.aws-usw02-pr.ice.predix.io
+cf push -f jupyter-manifest.yml
+cf set-env jupyter-predix-app01 JUPYTER_NOTEBOOK_PASSWORD password
+cf restage jupyter-predix-app01
+cf logs jupyter-predix-app01 --recent
+```
+
+- Visit https://jupyter-predix-app01.run.aws-usw02-pr.ice.predix.io/ then login with 'password'.
+
+
+### 4.3. Heroku Cloud
+- The commands below assume you have an existing Heroku app named `xre` so please update accordingly.
+
+```
+cd predix-volcano-app/
+chmod +x ./start_jupyter # please do $(dos2unix start_jupyter) if on Windows
+heroku git:remote -a xre
+heroku buildpacks:set https://github.com/pl31/heroku-buildpack-conda.git -a xre
+heroku config:set JUPYTER_NOTEBOOK_PASSWORD=password -a xre
+git push -f heroku master
+```
+
+- Visit https://xre.herokuapp.com/ then login with 'password'.
+- Note the cells in the Notebook are *not* interactive, Python dependencies cause the slug to exceed the 500MB cap for free Heroku plans.

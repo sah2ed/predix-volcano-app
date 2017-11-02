@@ -1,0 +1,11 @@
+---
+applications:
+- name: jupyter-predix-app01
+  memory: 512MB
+  instances: 1  
+  buildpack: https://github.com/pl31/heroku-buildpack-conda.git
+  #buildpack: python_minconda_buildpack
+  random-route: true
+  command: ~/start_jupyter  
+env:
+  JUPYTER_NOTEBOOK_PASSWORD: password

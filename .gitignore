@@ -43,3 +43,5 @@ nosetests.xml
 coverage.xml
 *,cover
 .buildinfo
+
+.ipynb_checkpoints/
