@@ -89,3 +89,4 @@ def sensor(guid):
     """
     sensors = asset.get_collection("/sensor/%s" % (guid))
     return jsonify(sensors[0])
+

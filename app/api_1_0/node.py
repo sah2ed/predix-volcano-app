@@ -108,3 +108,4 @@ def node(guid):
         nodes[0].update({'sensors': sensors})
 
     return jsonify(nodes[0])
+

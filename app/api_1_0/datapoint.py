@@ -96,3 +96,4 @@ def datapoints():
         datapoints.append(data[key])
 
     return jsonify(datapoints)
+

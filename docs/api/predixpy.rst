@@ -35,3 +35,4 @@ predix.data.timeseries
 
 .. automodule:: predix.data.timeseries
     :members:
+

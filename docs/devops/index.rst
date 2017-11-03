@@ -214,3 +214,4 @@ possible to search, filter, and review many days of log output beyond what the
 ``cf logs`` command can produce.
 
 .. _Logging Service: https://www.predix.io/services/service.html?id=1184
+

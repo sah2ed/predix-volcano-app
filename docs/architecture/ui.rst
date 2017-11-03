@@ -76,3 +76,4 @@ rendered user interface.
 
 .. image:: images/templates.png
 
+

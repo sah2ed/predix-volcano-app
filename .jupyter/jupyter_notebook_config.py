@@ -49,3 +49,4 @@ except Exception:
     # if an exception occues, notebook normally would get started
     # without password set. For security reasons, execution is stopped.
     exit(-1)
+

@@ -47,3 +47,4 @@ def home():
             sensors=json.dumps(natural_sort(sensors)),
             default_node=default_node,
             nodes=json.dumps(natural_sort(nodes)))
+

@@ -8,3 +8,4 @@ dashboard = Blueprint('dashboard', __name__, template_folder='templates',
 
 # views.py defines routes defined by this Flask Blueprint
 from . import views
+

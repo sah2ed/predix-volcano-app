@@ -43,3 +43,4 @@ class DataType(predix.data.asset.AssetCollection):
         self.data_type = data_type
         self.unit = unit
         self.tag = tag
+

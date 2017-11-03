@@ -78,3 +78,4 @@ def datatype(guid):
     """
     datatypes = asset.get_collection("/datatype/%s" % (guid))
     return jsonify(datatypes[0])
+

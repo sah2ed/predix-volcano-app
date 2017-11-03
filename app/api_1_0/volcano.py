@@ -114,3 +114,4 @@ def volcano(guid):
         volcanoes[0].update({'nodes': nodes})
 
     return jsonify(volcanoes[0])
+

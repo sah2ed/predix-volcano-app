@@ -24,3 +24,4 @@ def create_app(config_name):
     Bower(app)
 
     return app
+
